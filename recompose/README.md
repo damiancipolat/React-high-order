@@ -2,7 +2,8 @@
 
 - This example use Recomponse https://github.com/acdlite/recompose
 
-## METHODS
+## Methods
+You can see the full doc in this link https://github.com/acdlite/recompose/blob/master/docs/API.md
 
 - **withState**: This method creates a HOC.
   - it adds a state property

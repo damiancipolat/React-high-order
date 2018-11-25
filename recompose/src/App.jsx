@@ -5,32 +5,15 @@ import PropTypes from 'prop-types'
 //Recompose
 import {compose, setPropTypes, defaultProps,withHandlers,withState} from 'recompose';
 
-
 /*
-  withState: This method creates a HOC.
-  - it adds a state property
-  - it creates a handler to set the value of this state property
-  - it allow us to set a initial value
+  withState   -> define a state with only one attribute, a handler to modify and a default value.
+  setPropTypes-> define proptypes to a component.
+  defaultProps-> set a default prop value.
+  withHandlers-> add methods to a base component.
 */
-const withStateTimes   = withState('times', 'setTimes', 0);
-
-/*
-  withHandlers: The method withHandlers takes an object map of handler creators. Each one of the properties of this object passed to withHandlers should be a Higher-Order Function that accepts a set of props and returns a function handler. In this way we can generate a handler that will have access to the props of the component
-
-
-
-*/
-
-const withHandlerClick = withHandlers({
-  handleClick: props => e => {
-    let { times, onClick, setTimes } = props;
-    e.preventDefault()
-    setTimes( ++times );
-    onClick && onClick();
-  }
-})
 
 const enhance = compose(
+  withState('counter','setCounter',0),
   setPropTypes({
     onClick: PropTypes.func,
     type: PropTypes.oneOf(['submit', 'button']),
@@ -40,6 +23,21 @@ const enhance = compose(
   }),
   defaultProps({
     type: 'button',
+    className: '',
+  }),
+  withHandlers({
+    onClick: props => e => {
+      alert('click');
+
+      let counter = props.counter;
+      counter++;      
+      props.setCounter(counter);
+
+      props.onClick && props.onClick(e)
+    },
+    onHover: props => e => {
+      alert('hover');      
+    },
   }),
 )
 
@@ -49,15 +47,17 @@ const Loading = () => {
   )
 }
 
-const Button = ({ type, className, children, onClick, isLoading }) => {
+const Button = ({counter,type, className, children, onClick, isLoading }) => {
   return (
     <button type={type} className={className} onClick={onClick}>
       {isLoading && <Loading />}
-      {!isLoading && children}
+      {!isLoading && children} - Valor {counter}
     </button>
   )
 }
 
+//Compose: withHandlers(setPropTypes(defaultProps(Button))).
+const ButtonCompose = enhance(Button);
 
 class App extends Component {
 
@@ -81,6 +81,7 @@ class App extends Component {
           </h3>
           <div>
             <span>Hoc button &rarr; </span>
+            <ButtonCompose onClick={()=>alert('test')} isLoading={false}>test</ButtonCompose>
           </div>
         </header>
       </div>

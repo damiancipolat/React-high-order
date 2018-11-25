@@ -1,4 +1,4 @@
-#Recompose example
+# Recompose example
 
 - This example use Recomponse https://github.com/acdlite/recompose
 

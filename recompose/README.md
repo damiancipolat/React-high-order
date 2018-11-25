@@ -12,3 +12,11 @@ You can see the full doc in this link https://github.com/acdlite/recompose/blob/
 
 - **withHandlers**:
   - Takes an object map of handler creators.Each one of the properties of this object passed to withHandlers should be a Higher-Order Function that accepts a set of props and returns a function handler. In this way we can generate a handler that will have access to the props of the component
+
+## Run
+To run this project
+
+  ```js
+   $ npm install
+   $ npm Start
+  ```   

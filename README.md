@@ -8,7 +8,7 @@ Higher order function is in contrast to first order functions, which don’t tak
 
 Go to functions.js and take a look of this concepts:
 
-https://github.com/damiancipolat/React-Recompose-Practice/blob/master/high-order/functions/functions.js
+https://github.com/damiancipolat/React-high-order/blob/master/functions/functions.js
 
 ### Higher order components:
 In React, we have the equivalent of Higher-Order Functions but for components, the so-called Higher-Order Components, is a component tha take a component and returns a new component.

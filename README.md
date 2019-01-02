@@ -25,3 +25,10 @@ To understand the code into App.js there are steps 1..4, follow them in order an
 - 2 Create a wrapped component.
 - 3 Create a wrapped component but using a high order component.
 - 4 Create a custom (h.o.c's) and compose them.
+
+### Recompose:
+To make easier create high order components, exist the module **recompose** https://github.com/acdlite/recompose
+
+Recompose examples:
+- Simple example: https://github.com/damiancipolat/React-high-order/tree/master/recompose
+- Using redux: https://github.com/damiancipolat/React-high-order/tree/master/recompose-redux

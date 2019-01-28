@@ -1,25 +1,18 @@
-# Recompose example
+# Custom field mask component
 
-- This example use Recomponse https://github.com/acdlite/recompose
+- This component is a wrapper using recompose of the module "react-input-mask", https://www.npmjs.com/package/react-input-mask.
 
-## Methods
-You can see the full doc in this link https://github.com/acdlite/recompose/blob/master/docs/API.md
+## Use
+To run this project
 
-- **withState**: This method creates a HOC.
-  - it adds a state property
-  - it creates a handler to set the value of this state property
-  - it allow us to set a initial value
-
-- **withHandlers**:
-  - Takes an object map of handler creators.Each one of the properties of this object passed to withHandlers should be a Higher-Order Function that accepts a set of props and returns a function handler. In this way we can generate a handler that will have access to the props of the component
-
-- In this example, I use:
-  - withState   -> define a state with only one attribute, a handler to modify and a default value.
-  - setPropTypes-> define proptypes to a component.
-  - defaultProps-> set a default prop value.
-  - withHandlers-> add methods to a base component.
-  
-  - I create a compose object at this way: withHandlers(setPropTypes(defaultProps(withState(Button))).
+  ```js
+  <InputMask
+    maskFormat={"99-9999"}
+    maskChar="-"
+    maskError="Error writing text"
+    validator={validatorTest}
+  />
+  ```
 
 ## Run
 To run this project
@@ -27,4 +20,4 @@ To run this project
   ```js
    $ npm install
    $ npm Start
-  ```   
+  ```

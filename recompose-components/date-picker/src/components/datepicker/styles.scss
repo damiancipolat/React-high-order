@@ -1,0 +1,84 @@
+.datepicker-container{
+  background:white;
+  color:black;
+  padding: 15px;
+  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),0 5px 15px 0 rgba(0,0,0,0.08);
+  position: relative;
+
+  .filters{
+
+    margin-bottom: 15px;
+
+    .filter-title{
+      color:#183C6B;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+   
+    .filter-options{
+
+      .last-btn{
+        margin-right: 5px;
+        border-radius:10px;
+        border:0px solid black;
+        padding-top: 6px;
+        padding-bottom: 7px;
+        padding-right: 10px;
+        padding-left: 10px;
+        background: white;
+        color:gray;
+      }
+
+      .last-btn.selected{
+        background: #183C6B;
+        color:white;
+      }
+
+      .last-btn:hover{
+        background:#183C6B;
+        color:white;
+        cursor: pointer;
+      }
+
+    }
+
+  }
+
+  .calendar{
+    background: red;    
+    padding: 10px;
+    display: block;
+    width: auto;
+  }
+
+  .footer{
+    margin-top: 10px;
+    text-align: center;
+    padding: 5px;
+    
+    button{
+      color:#3B86FF;
+      font-size: 15px;
+      cursor: pointer;
+      border:0px;
+      background: white;
+    }
+
+  }
+
+}
+
+.datepicker-container:after {
+  bottom: 100%;
+  left: 85%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: white;
+  border-width: 17px;
+  margin-left: -17px;
+}

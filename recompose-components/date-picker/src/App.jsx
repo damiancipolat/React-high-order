@@ -27,7 +27,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <div>
-            <Datepicker/>
+            <Datepicker from="20190410" to="20190505"/>
           </div>
         </header>
       </div>

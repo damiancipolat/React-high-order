@@ -56,9 +56,11 @@ const DatePickerPure = ({focusInput,setFocusedInput,dates,setDates,filterSelecte
                 setDates({startDate,endDate});
            }}
            onFocusChange={focusedInput=>{
-              //Allow input switching if the custom option was selected.
-              const focusVal = (filterSelected===-1)?(focusedInput!=null?focusedInput:"startDate"):null;
-              setFocusedInput(focusVal);
+
+              if (filterSelected===-1){
+                setFocusedInput((focusedInput!=null) ? focusedInput : "startDate");
+              }
+              
            }}
            focusedInput={focusInput}
         />

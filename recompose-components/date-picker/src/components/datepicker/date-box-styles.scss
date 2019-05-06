@@ -1,0 +1,32 @@
+.date-box-container{  
+  background:white;
+  border:1px solid #183C6B;
+  padding:8px;
+  color:#A1A2AE;
+  height: 25px;
+  width: 340px;
+
+  .date-values{
+    float:left;
+    font-size: 18px;
+    margin-left: 5px;    
+    margin-top: 2px;
+  }
+
+  .date-btn{
+    float:left;
+    height: 25px;
+    margin-left: 20px;
+
+    button{
+      height: 25px;
+    }
+
+  }  
+}
+
+.datepicker-container{
+  position: absolute!important;
+  margin-top: 18px;
+  margin-left: -250px;
+}

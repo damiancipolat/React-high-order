@@ -13,7 +13,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import { DayPickerRangeController } from 'react-dates';
 
 //Import styles
-import './styles.scss';
+import './date-picker-styles.scss';
 
 //Day list options.
 const dayList = [
@@ -64,7 +64,7 @@ const DatePickerPure = ({focusInput,setFocusedInput,dates,setDates,filterSelecte
         />
       </div>
       <div className="footer">
-        <button type="button" className="last-btn selected" onClick={onFilter}>
+        <button type="button" className="last-btn filter" onClick={onFilter}>
           Filter
         </button>
       </div>

@@ -64,6 +64,17 @@
   cursor: pointer;
 }
 
+.last-btn.filter{
+  background: #3B86FF;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.last-btn.filter:hover{
+  background:#183C6B;
+}
+
 .datepicker-container:after {
   bottom: 100%;
   left: 85%;
@@ -88,6 +99,7 @@
 .DayPicker_weekHeader{
   color:#183C6B;
   border-bottom: 1px solid #e0e0e0;
+  margin-left: 8px;
   padding-bottom: 6px!important;
 }
 

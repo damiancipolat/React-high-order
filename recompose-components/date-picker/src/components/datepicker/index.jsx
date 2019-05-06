@@ -10,8 +10,7 @@ import moment from 'moment';
 //Import Airbnb datepicker.
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
-
+import { DayPickerRangeController } from 'react-dates';
 
 //Import styles
 import './styles.scss';
@@ -31,12 +30,11 @@ const DatePickerPure = ({focusInput,setFocusedInput,dates,setDates,filterSelecte
   return (
     <div className="datepicker-container">
       <div className="filters">
-      {JSON.stringify(dates)}-{filterSelected}
         <div className="filter-title">
-          Filter by the last: {filterSelected}          
+          <strong>Filter by the last:</strong>
         </div>
         <div className="filter-options">
-          {dayList.map(day => <button type="button" className={filterSelected===day.days?'last-btn selected':'last-btn'} key={day.label} onClick={()=>onFilterLast(day.days)}>{day.label}</button>)}          
+          {dayList.map(day => <button type="button" className={filterSelected === day.days ? 'last-btn selected':'last-btn'} key={day.label} onClick={() => onFilterLast(day.days)}>{day.label}</button>)}
         </div>
       </div>  
       <div className="calendar">
@@ -48,7 +46,8 @@ const DatePickerPure = ({focusInput,setFocusedInput,dates,setDates,filterSelecte
            orientation="horizontal"
            keepOpenOnDateSelect={false}
            monthFormat="MMMM YYYY"
-           renderKeyboardShortcutsButton = {()=>false}
+           noBorder={true}
+           hideKeyboardShortcutsPanel={true}
            isRTL={false}
            withPortal={false}
            onDatesChange={({ startDate, endDate }) =>{
@@ -65,7 +64,7 @@ const DatePickerPure = ({focusInput,setFocusedInput,dates,setDates,filterSelecte
         />
       </div>
       <div className="footer">
-        <button type="button" onClick={onFilter}>
+        <button type="button" className="last-btn selected" onClick={onFilter}>
           Filter
         </button>
       </div>
@@ -89,44 +88,35 @@ const DatePickerCompose = compose(
 
           //Calc new dates and update the state.
           props.setDates({
-            startDate : moment(),
-            endDate   : moment().subtract(days, "days")
+            endDate   : moment(),
+            startDate : moment().subtract(days, "days")
           });
 
         }
 
-        console.log(props);
-
       });
 
     },
-    updFilterDates: props => ()=>{
-
-    },
-    onFilter: props => ()=>{
-      alert('aaaaa')
+    onFilter: props => (date)=>{
+      //If the filter callback function defined.
+      if (props.onFilter)
+        props.onFilter(props.dates);
     }
-    //onChangeValues: props => () => {},
-  }),  
+  }),
   lifecycle({
     componentDidMount(){
-
       //If there are dates defined in props.
       if ((this.props.to)&&(this.props.from)){
-
         //Make dates to save in the states.
         const dates = {
           startDate:moment(this.props.from, 'YYYYMMDD'),
           endDate:moment(this.props.to, 'YYYYMMDD')
         }
-
         //Set the filter options custom and the dates.
         this.props.setFilterSelected(-1);
         this.props.setFocusedInput('startDate');
         this.props.setDates(dates);
-
       }
-
     },
   }),
 )(DatePickerPure);
